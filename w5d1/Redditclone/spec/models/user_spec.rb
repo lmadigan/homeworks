@@ -11,7 +11,7 @@ RSpec.describe User, type: :model do
 
   subject(:user) do
     FactoryGirl.build(:user,
-      name: "jonathan",
+      username: "jonathan",
       password: "good_password")
   end
 
