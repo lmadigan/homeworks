@@ -59,5 +59,36 @@ document.addEventListener("DOMContentLoaded", () => {
   // --- your code here!
 
 
+  const photoShowButton = document.querySelector(".photo-show-button");
+  photoShowButton.addEventListener("click", event => {
+    const photoFormContainer = document.querySelector(".photo-form-container");
+    if (photoFormContainer.className === "photo-form-container") {
+      photoFormContainer.className = "photo-form-container hidden";
+    } else {
+      photoFormContainer.className = "photo-form-container";
+    }
+  });
+
+  const handlePhotoSubmit = (e) => {
+    e.preventDefault();
+
+    const photoUrlInput = document.querySelector(".photo-url-input");
+    const photoUrl = photoUrlInput.value;
+    photoUrlInput.value = "";
+
+    const dogPhotos = document.querySelector(".dog-photos");
+    const newPhotoLi = document.createElement("li");
+
+    const newImg = document.createElement("img");
+    newImg.src = photoUrl;
+
+    newPhotoLi.appendChild(newImg);
+
+    dogPhotos.appendChild(newPhotoLi);
+
+  };
+
+  const photoSubmitButton = document.querySelector(".photo-url-submit");
+  photoSubmitButton.addEventListener("click", handlePhotoSubmit);
 
 });
